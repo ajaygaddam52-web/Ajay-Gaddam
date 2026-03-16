@@ -1,0 +1,2811 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "4d06676b-06c9-4003-a646-407f05d5d40b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n",
+      "12\n",
+      "14\n",
+      "16\n",
+      "18\n",
+      "20\n"
+     ]
+    }
+   ],
+   "source": [
+    "#for even numbers\n",
+    "for num in range(1,21):\n",
+    "    if num%2 ==0:\n",
+    "        print(num)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "d744c87a-4efd-4893-8cf6-b3dd5166ed5a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n",
+      "12\n",
+      "14\n",
+      "16\n",
+      "18\n",
+      "20\n"
+     ]
+    }
+   ],
+   "source": [
+    "#for even  numbers 2nd way\n",
+    "for num in range(2,21,2):\n",
+    "        print(num)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6bfb4006-44ef-4d5a-a710-2c40f7b60d19",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "3\n",
+      "5\n",
+      "7\n",
+      "9\n",
+      "11\n",
+      "13\n",
+      "15\n",
+      "17\n",
+      "19\n"
+     ]
+    }
+   ],
+   "source": [
+    "#for odd numbers\n",
+    "for num in range(1,21):\n",
+    "    if num%2 !=0:\n",
+    "        print(num)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "bc203423-850b-440f-ab4f-5b1916497cb6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "3\n",
+      "5\n",
+      "7\n",
+      "9\n",
+      "11\n",
+      "13\n",
+      "15\n",
+      "17\n",
+      "19\n"
+     ]
+    }
+   ],
+   "source": [
+    "#for odd numbers 2nd way\n",
+    "for num in range(1,21,2):\n",
+    "        print(num)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "f7c3ab56-bd67-4bf6-b702-6959ffb02ca7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "<!DOCTYPE html>\n",
+       "<html>\n",
+       "<head>\n",
+       "<style>\n",
+       "body{\n",
+       "    font-family: Arial;\n",
+       "    display:flex;\n",
+       "    justify-content:center;\n",
+       "    margin-top:50px;\n",
+       "}\n",
+       ".calculator{\n",
+       "    background:#f2f2f2;\n",
+       "    padding:20px;\n",
+       "    border-radius:10px;\n",
+       "    box-shadow:0 0 10px gray;\n",
+       "}\n",
+       "input{\n",
+       "    width:100%;\n",
+       "    height:40px;\n",
+       "    font-size:20px;\n",
+       "    margin-bottom:10px;\n",
+       "    text-align:right;\n",
+       "}\n",
+       "button{\n",
+       "    width:60px;\n",
+       "    height:40px;\n",
+       "    margin:5px;\n",
+       "    font-size:18px;\n",
+       "}\n",
+       "</style>\n",
+       "</head>\n",
+       "<body>\n",
+       "\n",
+       "<div class=\"calculator\">\n",
+       "<input id=\"result\" type=\"text\" readonly>\n",
+       "\n",
+       "<br>\n",
+       "<button onclick=\"add('7')\">7</button>\n",
+       "<button onclick=\"add('8')\">8</button>\n",
+       "<button onclick=\"add('9')\">9</button>\n",
+       "<button onclick=\"add('/')\">/</button>\n",
+       "\n",
+       "<br>\n",
+       "<button onclick=\"add('4')\">4</button>\n",
+       "<button onclick=\"add('5')\">5</button>\n",
+       "<button onclick=\"add('6')\">6</button>\n",
+       "<button onclick=\"add('')\"></button>\n",
+       "\n",
+       "<br>\n",
+       "<button onclick=\"add('1')\">1</button>\n",
+       "<button onclick=\"add('2')\">2</button>\n",
+       "<button onclick=\"add('3')\">3</button>\n",
+       "<button onclick=\"add('-')\">-</button>\n",
+       "\n",
+       "<br>\n",
+       "<button onclick=\"add('0')\">0</button>\n",
+       "<button onclick=\"calculate()\">=</button>\n",
+       "<button onclick=\"clearResult()\">C</button>\n",
+       "<button onclick=\"add('+')\">+</button>\n",
+       "\n",
+       "</div>\n",
+       "\n",
+       "<script>\n",
+       "function add(value){\n",
+       "    document.getElementById(\"result\").value += value;\n",
+       "}\n",
+       "\n",
+       "function calculate(){\n",
+       "    let x = document.getElementById(\"result\").value;\n",
+       "    document.getElementById(\"result\").value = eval(x);\n",
+       "}\n",
+       "\n",
+       "function clearResult(){\n",
+       "    document.getElementById(\"result\").value = \"\";\n",
+       "}\n",
+       "</script>\n",
+       "\n",
+       "</body>\n",
+       "</html>\n"
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from IPython.display import HTML\n",
+    "\n",
+    "HTML(\"\"\"\n",
+    "<!DOCTYPE html>\n",
+    "<html>\n",
+    "<head>\n",
+    "<style>\n",
+    "body{\n",
+    "    font-family: Arial;\n",
+    "    display:flex;\n",
+    "    justify-content:center;\n",
+    "    margin-top:50px;\n",
+    "}\n",
+    ".calculator{\n",
+    "    background:#f2f2f2;\n",
+    "    padding:20px;\n",
+    "    border-radius:10px;\n",
+    "    box-shadow:0 0 10px gray;\n",
+    "}\n",
+    "input{\n",
+    "    width:100%;\n",
+    "    height:40px;\n",
+    "    font-size:20px;\n",
+    "    margin-bottom:10px;\n",
+    "    text-align:right;\n",
+    "}\n",
+    "button{\n",
+    "    width:60px;\n",
+    "    height:40px;\n",
+    "    margin:5px;\n",
+    "    font-size:18px;\n",
+    "}\n",
+    "</style>\n",
+    "</head>\n",
+    "<body>\n",
+    "\n",
+    "<div class=\"calculator\">\n",
+    "<input id=\"result\" type=\"text\" readonly>\n",
+    "\n",
+    "<br>\n",
+    "<button onclick=\"add('7')\">7</button>\n",
+    "<button onclick=\"add('8')\">8</button>\n",
+    "<button onclick=\"add('9')\">9</button>\n",
+    "<button onclick=\"add('/')\">/</button>\n",
+    "\n",
+    "<br>\n",
+    "<button onclick=\"add('4')\">4</button>\n",
+    "<button onclick=\"add('5')\">5</button>\n",
+    "<button onclick=\"add('6')\">6</button>\n",
+    "<button onclick=\"add('')\"></button>\n",
+    "\n",
+    "<br>\n",
+    "<button onclick=\"add('1')\">1</button>\n",
+    "<button onclick=\"add('2')\">2</button>\n",
+    "<button onclick=\"add('3')\">3</button>\n",
+    "<button onclick=\"add('-')\">-</button>\n",
+    "\n",
+    "<br>\n",
+    "<button onclick=\"add('0')\">0</button>\n",
+    "<button onclick=\"calculate()\">=</button>\n",
+    "<button onclick=\"clearResult()\">C</button>\n",
+    "<button onclick=\"add('+')\">+</button>\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "<script>\n",
+    "function add(value){\n",
+    "    document.getElementById(\"result\").value += value;\n",
+    "}\n",
+    "\n",
+    "function calculate(){\n",
+    "    let x = document.getElementById(\"result\").value;\n",
+    "    document.getElementById(\"result\").value = eval(x);\n",
+    "}\n",
+    "\n",
+    "function clearResult(){\n",
+    "    document.getElementById(\"result\").value = \"\";\n",
+    "}\n",
+    "</script>\n",
+    "\n",
+    "</body>\n",
+    "</html>\n",
+    "\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b3822c70-7644-4564-8239-8d778cc3581d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "4fed62e9-cc89-4ab7-aa8d-6ee42098205e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Before swapping: a =  10 b'=' 20\n",
+      "After swapping: a = 20 b = 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "#wap two variables using a third variable \n",
+    "#Initalize two variables \n",
+    "a=10\n",
+    "b=20\n",
+    "print(\"Before swapping: a = \", a, b\"=\",b)\n",
+    "#using a third variable (temp) to swap\n",
+    "temp = a\n",
+    "a = b\n",
+    "b = temp\n",
+    "print (\"After swapping: a =\" , a,\"b =\" , b)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "cfdb5032-bf9a-47c5-9615-dc61bd1c8ad1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method 1 - Minimum: 7\n",
+      "Method 2 - Minimum: 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Assign values\n",
+    "a, b, c = 15, 7, 22\n",
+    "\n",
+    "# ---------------------------\n",
+    "# Method 1: Using if-else\n",
+    "# ---------------------------\n",
+    "if a <= b and a <= c:\n",
+    "    minimum1 = a\n",
+    "elif b <= a and b <= c:\n",
+    "    minimum1 = b\n",
+    "else:\n",
+    "    minimum1 = c\n",
+    "\n",
+    "print(\"Method 1 - Minimum:\", minimum1)\n",
+    "\n",
+    "\n",
+    "# ---------------------------\n",
+    "# Method 2: Using min() function\n",
+    "# ---------------------------\n",
+    "minimum2 = min(a, b, c)\n",
+    "\n",
+    "print(\"Method 2 - Minimum:\", minimum2)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "a0ad9650-5d83-4b42-abb5-a93bbcc357ec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter value for a:  20\n",
+      "Enter value for b:  10\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.0\n",
+      "bye\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = int(input(\"Enter value for a: \"))\n",
+    "b = int(input(\"Enter value for b: \"))\n",
+    "\n",
+    "try:\n",
+    "    c = a / b\n",
+    "    print(c)\n",
+    "except Exception as e:\n",
+    "    print(e)\n",
+    "finally:\n",
+    "    print(\"bye\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ea7d7b54-96e0-4e07-909a-2bd7bdf219cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter first name:  ajay\n",
+      "Enter second name:  good\n",
+      "Enter third name:  morning\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello ajay\n",
+      "Hello good\n",
+      "Hello morning\n"
+     ]
+    }
+   ],
+   "source": [
+    "def ac(name):\n",
+    "    print(\"Hello\", name)\n",
+    "\n",
+    "name1 = input(\"Enter first name: \")\n",
+    "name2 = input(\"Enter second name: \")\n",
+    "name3 = input(\"Enter third name: \")\n",
+    "\n",
+    "ac(name1)\n",
+    "ac(name2)\n",
+    "ac(name3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "64aac51c-f8d1-46e8-9c3c-49f111262592",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#default parameter values\n",
+    "def ac(name=\"QWE\"):\n",
+    "    print(\"hello\", name)\n",
+    "    ac()\n",
+    "    ac(\"Ajay\")\n",
+    "    ac(\"excellent\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "27118cab-4d37-4ebf-a27b-94123e0432aa",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Simple Calculator\n",
+      "1. Add\n",
+      "2. Subtract\n",
+      "3. Multiply\n",
+      "4. Divide\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter choice (1/2/3/4):  1\n",
+      "Enter first number:  10\n",
+      "Enter second number:  29\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result: 39.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Function Definitions\n",
+    "def add(a, b):\n",
+    "    return a + b\n",
+    "\n",
+    "def subtract(a, b):\n",
+    "    return a - b\n",
+    "\n",
+    "def multiply(a, b):\n",
+    "    return a * b\n",
+    "\n",
+    "def divide(a, b):\n",
+    "    if b == 0:\n",
+    "        return \"Cannot divide by zero\"\n",
+    "    return a / b\n",
+    "\n",
+    "\n",
+    "# Main Function\n",
+    "def calculator():\n",
+    "    print(\"Simple Calculator\")\n",
+    "    print(\"1. Add\")\n",
+    "    print(\"2. Subtract\")\n",
+    "    print(\"3. Multiply\")\n",
+    "    print(\"4. Divide\")\n",
+    "\n",
+    "    choice = input(\"Enter choice (1/2/3/4): \")\n",
+    "\n",
+    "    num1 = float(input(\"Enter first number: \"))\n",
+    "    num2 = float(input(\"Enter second number: \"))\n",
+    "\n",
+    "    if choice == '1':\n",
+    "        print(\"Result:\", add(num1, num2))\n",
+    "    elif choice == '2':\n",
+    "        print(\"Result:\", subtract(num1, num2))\n",
+    "    elif choice == '3':\n",
+    "        print(\"Result:\", multiply(num1, num2))\n",
+    "    elif choice == '4':\n",
+    "        print(\"Result:\", divide(num1, num2))\n",
+    "    else:\n",
+    "        print(\"Invalid choice\")\n",
+    "\n",
+    "\n",
+    "# Call the calculator function\n",
+    "calculator()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "6e90313b-b2cc-425a-a8e3-0666ae9edee4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Simple Calculator\n",
+      "1. Add\n",
+      "2. Subtract\n",
+      "3. Multiply\n",
+      "4. Divide\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter choice (1/2/3/4):  2\n",
+      "Enter first number:  99\n",
+      "Enter second number:  99\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result: 0.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Function Definitions\n",
+    "def add(a, b):\n",
+    "    return a + b\n",
+    "\n",
+    "def subtract(a, b):\n",
+    "    return a - b\n",
+    "\n",
+    "def multiply(a, b):\n",
+    "    return a * b\n",
+    "\n",
+    "def divide(a, b):\n",
+    "    if b == 0:\n",
+    "        return \"Cannot divide by zero\"\n",
+    "    else:\n",
+    "        return a / b\n",
+    "\n",
+    "\n",
+    "# Main Calculator Function\n",
+    "def calculator():\n",
+    "    print(\"Simple Calculator\")\n",
+    "    print(\"1. Add\")\n",
+    "    print(\"2. Subtract\")\n",
+    "    print(\"3. Multiply\")\n",
+    "    print(\"4. Divide\")\n",
+    "\n",
+    "    choice = input(\"Enter choice (1/2/3/4): \")\n",
+    "\n",
+    "    num1 = float(input(\"Enter first number: \"))\n",
+    "    num2 = float(input(\"Enter second number: \"))\n",
+    "\n",
+    "    if choice == '1':\n",
+    "        print(\"Result:\", add(num1, num2))\n",
+    "    else:\n",
+    "        if choice == '2':\n",
+    "            print(\"Result:\", subtract(num1, num2))\n",
+    "        else:\n",
+    "            if choice == '3':\n",
+    "                print(\"Result:\", multiply(num1, num2))\n",
+    "            else:\n",
+    "                if choice == '4':\n",
+    "                    print(\"Result:\", divide(num1, num2))\n",
+    "                else:\n",
+    "                    print(\"Invalid choice\")\n",
+    "\n",
+    "\n",
+    "# Call the function\n",
+    "calculator()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "da8615e9-31ff-46dd-a63a-9cd810803ad3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a word:  hello\n",
+      "Enter a number:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hellohello\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    word = input(\"Enter a word: \")\n",
+    "    number = int(input(\"Enter a number: \"))\n",
+    "\n",
+    "    if number > 0:\n",
+    "        print(word * number)\n",
+    "    else:\n",
+    "        print(\"Number should be greater than 0\")\n",
+    "\n",
+    "except:\n",
+    "    print(\"Please enter a valid number\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "7af22496-3bc1-4b4a-b7b5-31ea55a0c1d5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  hello\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Length of the string is: 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Get a string from the user\n",
+    "text = input(\"Enter a string: \")\n",
+    "\n",
+    "# Print the length of the string\n",
+    "print(\"Length of the string is:\", len(text))\n",
+    "\n",
+    "# Your code here "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "dfc33dbb-41d8-43e5-b4a3-2079c92f9d98",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a sentence:  hello\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "All Uppercase: HELLO\n",
+      "All Lowercase: hello\n",
+      "Title Case: Hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "sentence = input(\"Enter a sentence: \")\n",
+    "print(\"All Uppercase:\", sentence.upper())\n",
+    "print(\"All Lowercase:\", sentence.lower())\n",
+    "print(\"Title Case:\", sentence.title())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "b53b8776-97d7-47e3-91b8-29c41f6729d6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  hello\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "First character: h\n",
+      "Last character: o\n"
+     ]
+    }
+   ],
+   "source": [
+    "stext = input(\"Enter a string: \")\n",
+    "\n",
+    "if len(text) > 0:\n",
+    "    print(\"First character:\", text[0])\n",
+    "    print(\"Last character:\", text[-1])\n",
+    "else:\n",
+    "    print(\"String is empty\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "707d2f70-d90c-4698-ac00-a3b2bea57986",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  HEMA\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reversed string: AMEH\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "text = input(\"Enter a string: \")\n",
+    "\n",
+    "reverse_text = text[::-1]\n",
+    "\n",
+    "print(\"Reversed string:\", reverse_text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "51721dd3-d1ad-47ee-9744-cf7b39e34394",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CREATE A SIMPLE VOWEL COUNTER\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "17937841-fdcc-48fe-b8b9-487c42fdbbb1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "text = input(\"Enter a string: \")\n",
+    "\n",
+    "count = 0\n",
+    "\n",
+    "for char in text:\n",
+    "    if char.lower() in \"aeiou\":\n",
+    "        count += 1\n",
+    "\n",
+    "print(\"Number of vowels:\", count)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0be80a62-66f0-465f-94e2-26742b7f451b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "PALINDROME CHECKER\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f2b84cbf-a457-4c88-bcfa-a4072c1ae9f6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "text = input(\"Enter a word: \")\n",
+    "\n",
+    "if text == text[::-1]:\n",
+    "    print(\"It is a Palindrome\")\n",
+    "else:\n",
+    "    print(\"It is Not a Palindrome\")\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9f5c2b3c-0978-4e1b-94d4-5ce2f06dd4c1",
+   "metadata": {},
+   "source": [
+    "NAME FORMATTER"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "0dc9eb20-ae97-4697-a482-6718dae007db",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your full name:  Ajay \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Uppercase: AJAY \n",
+      "Lowercase: ajay \n",
+      "Title Case: Ajay \n",
+      "Capitalized: Ajay \n"
+     ]
+    }
+   ],
+   "source": [
+    "name = input(\"Enter your full name: \")\n",
+    "\n",
+    "print(\"Uppercase:\", name.upper())\n",
+    "print(\"Lowercase:\", name.lower())\n",
+    "print(\"Title Case:\", name.title())\n",
+    "print(\"Capitalized:\", name.capitalize())"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "77e8dea1-cf81-457e-a5f8-6694a5220776",
+   "metadata": {},
+   "source": [
+    "WORD COUNTER\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fc6afb8a-a122-4095-b747-5b8c69151a6e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sentence = input(\"Enter a sentence: \")\n",
+    "\n",
+    "words = sentence.split()\n",
+    "\n",
+    "count = len(words)\n",
+    "\n",
+    "print(\"Number of words:\", count)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c0d689cd-9848-488d-94c5-9e04e2c566a6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "PASSWORD AND STRENGTH CHECKER"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "37a23b8d-bef1-41ca-a9f5-9c6eb5dfb446",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your password:  Ajay@756\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Strong Password\n"
+     ]
+    }
+   ],
+   "source": [
+    "password = input(\"Enter your password: \")\n",
+    "\n",
+    "length = len(password)\n",
+    "\n",
+    "has_upper = False\n",
+    "has_lower = False\n",
+    "has_digit = False\n",
+    "\n",
+    "for char in password:\n",
+    "    if char.isupper():\n",
+    "        has_upper = True\n",
+    "    if char.islower():\n",
+    "        has_lower = True\n",
+    "    if char.isdigit():\n",
+    "        has_digit = True\n",
+    "\n",
+    "if length >= 8 and has_upper and has_lower and has_digit:\n",
+    "    print(\"Strong Password\")\n",
+    "elif length >= 6:\n",
+    "    print(\"Medium Password\")\n",
+    "else:\n",
+    "    print(\"Weak Password\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9d686e2a-57bf-4af0-8a59-e957bef8f56d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 3, 9, 7, 8]\n",
+      "[9, 7, 8]\n"
+     ]
+    }
+   ],
+   "source": [
+    "nos=[1,2,3]\n",
+    "nos1=[9,7,8]\n",
+    "nos.extend(nos1)\n",
+    "print(nos)\n",
+    "print(nos1)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "fc3a3efa-7b6d-4dd6-94d9-d209f5e251a6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nos.pop()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "dc709090-f805-4826-b90e-7f3c8ce1ac97",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nos.pop(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2a3f39d4-a128-4603-8b3c-ff16aa4774cb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "dictonaires\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "a44305b2-388f-43b8-913c-5f8f6fd2de80",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Dictionary = unordered collection of key-value pairs\n",
+    "# Keys must be unique & immutable (usually strings or numbers)\n",
+    "# Values can be anything: int, str, list, another dict, etc.\n",
+    "student = {\n",
+    "    \"name\": \"Priya\",\n",
+    "    \"roll_no\": 42,\n",
+    "    \"marks\": [89, 92, 78],\n",
+    "    \"city\": \"Nagpur\",\n",
+    "    \"is_present\": True\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "378214e4-8f14-4acd-843b-007362d4f997",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dict_keys(['a', 'b', 'c'])\n",
+      "dict_values([1, 2, 3])\n",
+      "dict_items([('a', 1), ('b', 2), ('c', 3)])\n",
+      "True\n",
+      "False\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "#accessing dictionary keys, values and items\n",
+    "my_dict = {\"a\": 1, \"b\": 2, \"c\": 3}\n",
+    "\n",
+    "# Get all keys\n",
+    "print(my_dict.keys())     # dict_keys(['a', 'b', 'c'])\n",
+    "\n",
+    "# Get all values\n",
+    "print(my_dict.values())   # dict_values([1, 2, 3])\n",
+    "\n",
+    "# Get all key-value pairs\n",
+    "print(my_dict.items())    # dict_items([('a', 1), ('b', 2), ('c', 3)])\n",
+    "\n",
+    "# Check if key exists\n",
+    "print(\"a\" in my_dict)     # True\n",
+    "print(\"z\" in my_dict)     # False\n",
+    "\n",
+    "# Get length\n",
+    "print(len(my_dict))       # 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "cb616117-13df-4426-924a-31c3f4f1446b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "231dfc22-3049-43f7-9240-4bb5258c4cfb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Rahul → 87\n",
+      "Sneha → 95\n",
+      "Vikram → 64\n",
+      "Priya → 92\n",
+      "Rahul\n",
+      "Sneha\n",
+      "Vikram\n",
+      "Priya\n",
+      "87 95 64 92 Rahul    : 87\n",
+      "Sneha    : 95\n",
+      "   → Outstanding!\n",
+      "Vikram   : 64\n",
+      "Priya    : 92\n",
+      "   → Outstanding!\n"
+     ]
+    }
+   ],
+   "source": [
+    "scores = {\"Rahul\": 87, \"Sneha\": 95, \"Vikram\": 64, \"Priya\": 92}\n",
+    "\n",
+    "# 1. Loop over keys (most common)\n",
+    "for name in scores:\n",
+    "    print(name, \"→\", scores[name])\n",
+    "    # 2. Loop over keys explicitly\n",
+    "for name in scores.keys():\n",
+    "    print(name)\n",
+    "    # 3. Loop over values\n",
+    "for mark in scores.values():\n",
+    "    print(mark, end=\" \")\n",
+    "    # 4. Loop over both key and value (very powerful!)\n",
+    "for name, mark in scores.items():\n",
+    "    print(f\"{name:8} : {mark}\")\n",
+    "    if mark >= 90:\n",
+    "        print(\"   → Outstanding!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5f48f366-75d7-4575-b969-d90bb7397650",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "create a student grades using create a dictionary called with the following data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "57857c79-f8c8-4614-92b2-132634394b94",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Emma's Age: 16\n",
+      "Second Subject: Science\n",
+      "All Subjects: Math Science English\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create dictionary\n",
+    "student = {\n",
+    "    \"Name\": \"Emma\",\n",
+    "    \"Age\": 16,\n",
+    "    \"Grade\": \"10th\",\n",
+    "    \"Subjects\": [\"Math\", \"Science\", \"English\"]\n",
+    "}\n",
+    "\n",
+    "# Print Emma's age\n",
+    "print(\"Emma's Age:\", student[\"Age\"])\n",
+    "\n",
+    "# Print her second subject\n",
+    "print(\"Second Subject:\", student[\"Subjects\"][1])\n",
+    "\n",
+    "# Print all subjects in a single line\n",
+    "print(\"All Subjects:\", \" \".join(student[\"Subjects\"]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1ce5085f-6ec4-43d9-a915-65548825856d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "PHONE BOOK ENTRY FOR JOHN WITH PHONE CITY WHATSAPP"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "277d5b58-4b96-4cdb-ac63-33027ee2c5d1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'name': 'John', 'phone': '555-1234', 'city': 'Boston', 'email': 'john@email.com'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create phone book entry\n",
+    "phone_book = {\n",
+    "    \"name\": \"John\",\n",
+    "    \"phone\": \"555-1234\",\n",
+    "    \"city\": \"New York\",\n",
+    "    \"hasWhatsApp\": True\n",
+    "}\n",
+    "\n",
+    "# Add new key \"email\"\n",
+    "phone_book[\"email\"] = \"john@email.com\"\n",
+    "\n",
+    "# Change city to \"Boston\"\n",
+    "phone_book[\"city\"] = \"Boston\"\n",
+    "\n",
+    "# Remove \"hasWhatsApp\" key\n",
+    "del phone_book[\"hasWhatsApp\"]\n",
+    "\n",
+    "# Print final dictionary\n",
+    "print(phone_book)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fbca22ca-3df3-40af-b816-b029b3febd79",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "WORD LENGHTS WRITE A PROGRAM TO CREATE A LIST OF WORDS"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e86342a3-6fd6-4329-978f-9408b6762127",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# List of words\n",
+    "words = [\"cat\", \"elephant\", \"dog\"]\n",
+    "\n",
+    "# Create empty dictionary\n",
+    "word_lengths = {}\n",
+    "\n",
+    "# Add words and their lengths\n",
+    "for word in words:\n",
+    "    word_lengths[word] = len(word)\n",
+    "\n",
+    "# Print result\n",
+    "print(word_lengths)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "26b01408-ebb6-4d70-ac66-a33b13a541d9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CHARACTER COUNTER"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "70e76b05-f976-4938-b758-3165d5b38a8b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def count_characters(text):\n",
+    "    char_count = {}\n",
+    "    \n",
+    "    for char in text:\n",
+    "        if char != \" \":   # Ignore spaces\n",
+    "            if char in char_count:\n",
+    "                char_count[char] += 1\n",
+    "            else:\n",
+    "                char_count[char] = 1\n",
+    "                \n",
+    "    return char_count\n",
+    "\n",
+    "\n",
+    "# Example\n",
+    "result = count_characters(\"hello world\")\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "de1b9137-1d1b-447f-8519-fa80d4f14e40",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "DICTIONARY CLASS ROOM"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0666ddfd-cd3f-4be5-9aa3-936231cdd896",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create classroom dictionary\n",
+    "Pythonclassroom = {\n",
+    "    \"Rahul\": {\"math\": 78, \"science\": 82, \"english\": 65},\n",
+    "    \"Priya\": {\"math\": 92, \"science\": 88, \"english\": 95},\n",
+    "    \"Arjun\": {\"math\": 70, \"science\": 75, \"english\": 80}\n",
+    "}\n",
+    "\n",
+    "# Print the whole dictionary\n",
+    "print(Pythonclassroom)\n",
+    "\n",
+    "# Example: Print Rahul's math marks\n",
+    "print(\"Rahul Math Marks:\", Pythonclassroom[\"Rahul\"][\"math\"])\n",
+    "\n",
+    "# Example: Print Priya's English marks\n",
+    "print(\"Priya English Marks:\", Pythonclassroom[\"Priya\"][\"english\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6d3e0548-cb8c-4ae2-99ef-aed07f15da74",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "MULTIPULE SOLUTIONS"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "952b31df-9143-4f24-8bda-0520e003c432",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [3, 2, 1, 2, 4, 3, 5, 1]\n",
+    "\n",
+    "unique_nums = list(set(nums))\n",
+    "print(unique_nums)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "170695b1-c873-41c5-ab4b-811afe35a9ec",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [3, 2, 1, 2, 4, 3, 5, 1]\n",
+    "\n",
+    "unique_nums = []\n",
+    "\n",
+    "for num in nums:\n",
+    "    if num not in unique_nums:\n",
+    "        unique_nums.append(num)\n",
+    "\n",
+    "print(unique_nums)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "869aea31-b79d-4ff7-ab44-a15e8d9ebaa2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 3, 2, 3, 4, 3, 2, 1, 3]\n",
+    "\n",
+    "max_count = 0\n",
+    "most_frequent = None\n",
+    "\n",
+    "for num in nums:\n",
+    "    if nums.count(num) > max_count:\n",
+    "        max_count = nums.count(num)\n",
+    "        most_frequent = num\n",
+    "\n",
+    "print(\"Most Frequent Element:\", most_frequent)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6af82e76-1f1a-4838-8a1b-c49c06250873",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 3, 2, 3, 4, 3, 2, 1, 3]\n",
+    "\n",
+    "frequency = {}\n",
+    "\n",
+    "for num in nums:\n",
+    "    if num in frequency:\n",
+    "        frequency[num] += 1\n",
+    "    else:\n",
+    "        frequency[num] = 1\n",
+    "\n",
+    "max_count = 0\n",
+    "most_frequent = None\n",
+    "\n",
+    "for key in frequency:\n",
+    "    if frequency[key] > max_count:\n",
+    "        max_count = frequency[key]\n",
+    "        most_frequent = key\n",
+    "\n",
+    "print(\"Most Frequent Element:\", most_frequent)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "60a17d5e-f350-404c-afe8-410eb46e4dc2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [6, 7, 8, 9, 5]\n",
+    "\n",
+    "common_found = False\n",
+    "\n",
+    "for item in list1:\n",
+    "    if item in list2:\n",
+    "        common_found = True\n",
+    "        break\n",
+    "\n",
+    "print(common_found)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6bce5e47-91c1-47c9-9669-6dc782b97c59",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [6, 7, 8, 9, 5]\n",
+    "\n",
+    "common = set(list1) & set(list2)\n",
+    "\n",
+    "print(len(common) > 0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "74ae8ed6-1894-44d4-9ee4-02b795c0c653",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nested_list = [1, [2, 3], [4, [5, 6]], 7]\n",
+    "\n",
+    "def flatten(lst):\n",
+    "    result = []\n",
+    "    for item in lst:\n",
+    "        if isinstance(item, list):\n",
+    "            result.extend(flatten(item))\n",
+    "        else:\n",
+    "            result.append(item)\n",
+    "    return result\n",
+    "\n",
+    "print(flatten(nested_list))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a06fbd33-030f-41e6-96f1-41eac412d4cf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nested_list = [1, [2, 3], [4, [5, 6]], 7]\n",
+    "\n",
+    "flat_list = []\n",
+    "\n",
+    "for item in nested_list:\n",
+    "    if isinstance(item, list):\n",
+    "        for sub in item:\n",
+    "            flat_list.append(sub)\n",
+    "    else:\n",
+    "        flat_list.append(item)\n",
+    "\n",
+    "print(flat_list)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "560a4135-b306-426a-a175-fc25cafcb330",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "words = [\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]\n",
+    "\n",
+    "anagrams = {}\n",
+    "\n",
+    "for word in words:\n",
+    "    key = ''.join(sorted(word))\n",
+    "    \n",
+    "    if key in anagrams:\n",
+    "        anagrams[key].append(word)\n",
+    "    else:\n",
+    "        anagrams[key] = [word]\n",
+    "\n",
+    "print(list(anagrams.values()))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a23a71d4-3e46-464e-80ab-17c150957d93",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from collections import defaultdict\n",
+    "\n",
+    "words = [\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]\n",
+    "\n",
+    "anagrams = defaultdict(list)\n",
+    "\n",
+    "for word in words:\n",
+    "    key = ''.join(sorted(word))\n",
+    "    anagrams[key].append(word)\n",
+    "\n",
+    "print(list(anagrams.values()))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ae4ee89f-a774-4fc6-a982-0f9b3f5f9a39",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [4, 5, 6, 7, 8]\n",
+    "\n",
+    "intersection = []\n",
+    "\n",
+    "for item in list1:\n",
+    "    if item in list2:\n",
+    "        intersection.append(item)\n",
+    "\n",
+    "print(intersection)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0a582af9-56db-419b-9566-06bbbd97dfe4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [4, 5, 6, 7, 8]\n",
+    "\n",
+    "intersection = list(set(list1) & set(list2))\n",
+    "\n",
+    "print(intersection)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "739d5b1e-f1a2-4b66-be9f-da52c6837392",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lst = [1, 2, 3, 2, 1]\n",
+    "\n",
+    "print(lst == lst[::-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aaeced92-db9f-45c4-9e2d-39f44cbe0fae",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lst = [1, 2, 3, 2, 1]\n",
+    "\n",
+    "is_palindrome = True\n",
+    "\n",
+    "for i in range(len(lst) // 2):\n",
+    "    if lst[i] != lst[-(i + 1)]:\n",
+    "        is_palindrome = False\n",
+    "        break\n",
+    "\n",
+    "print(is_palindrome)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "983ab610-ef7c-4ae6-a6ff-9c73cf723645",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 2, 4, 5, 6]\n",
+    "n = 6\n",
+    "\n",
+    "expected_sum = n * (n + 1) // 2\n",
+    "actual_sum = sum(nums)\n",
+    "\n",
+    "missing_number = expected_sum - actual_sum\n",
+    "\n",
+    "print(missing_number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e196ccf7-9013-4278-a491-87bf1d9ea8c1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 2, 4, 5, 6]\n",
+    "n = 6\n",
+    "\n",
+    "full_set = set(range(1, n + 1))\n",
+    "nums_set = set(nums)\n",
+    "\n",
+    "missing_number = list(full_set - nums_set)[0]\n",
+    "\n",
+    "print(missing_number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "93ae0abc-e1cc-43f3-a965-f781eb8052bd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "text = \"swiss\"\n",
+    "\n",
+    "for ch in text:\n",
+    "    if text.count(ch) == 1:\n",
+    "        print(ch)\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a14f95b0-554c-4ccb-aa78-a1a7aac63b6b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "text = \"swiss\"\n",
+    "\n",
+    "frequency = {}\n",
+    "\n",
+    "# Count characters\n",
+    "for ch in text:\n",
+    "    if ch in frequency:\n",
+    "        frequency[ch] += 1\n",
+    "    else:\n",
+    "        frequency[ch] = 1\n",
+    "\n",
+    "# Find first non-repeating\n",
+    "for ch in text:\n",
+    "    if frequency[ch] == 1:\n",
+    "        print(ch)\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d4c21fab-9a8d-42da-bbec-bbb8f92bfa22",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s1 = \"listen\"\n",
+    "s2 = \"silent\"\n",
+    "\n",
+    "print(sorted(s1) == sorted(s2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "45e15af3-fa06-449f-b0a2-d095b81e9675",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s1 = \"listen\"\n",
+    "s2 = \"silent\"\n",
+    "\n",
+    "if len(s1) != len(s2):\n",
+    "    print(False)\n",
+    "else:\n",
+    "    freq = {}\n",
+    "\n",
+    "    for ch in s1:\n",
+    "        if ch in freq:\n",
+    "            freq[ch] += 1\n",
+    "        else:\n",
+    "            freq[ch] = 1\n",
+    "\n",
+    "    for ch in s2:\n",
+    "        if ch in freq:\n",
+    "            freq[ch] -= 1\n",
+    "        else:\n",
+    "            print(False)\n",
+    "            break\n",
+    "    else:\n",
+    "        if all(value == 0 for value in freq.values()):\n",
+    "            print(True)\n",
+    "        else:\n",
+    "            print(False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "06106843-3b36-44dd-a9c8-e5f2b4f0c963",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 3, 4, 2, 2]\n",
+    "\n",
+    "seen = set()\n",
+    "duplicate = None\n",
+    "\n",
+    "for num in nums:\n",
+    "    if num in seen:\n",
+    "        duplicate = num\n",
+    "        break\n",
+    "    else:\n",
+    "        seen.add(num)\n",
+    "\n",
+    "print(duplicate)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c2b970a1-8db3-4994-b37a-209f4deaba61",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nums = [1, 3, 4, 2, 2]\n",
+    "\n",
+    "frequency = {}\n",
+    "\n",
+    "for num in nums:\n",
+    "    if num in frequency:\n",
+    "        frequency[num] += 1\n",
+    "    else:\n",
+    "        frequency[num] = 1\n",
+    "\n",
+    "for key in frequency:\n",
+    "    if frequency[key] > 1:\n",
+    "        print(key)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4fa71d3f-744c-44e7-a26b-0c00a8cecc42",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Set problems\n",
+    "# 1. Find common elements in three lists\n",
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [4, 5, 6, 7, 8]\n",
+    "list3 = [5, 6, 7, 8, 9]\n",
+    "common = set(list1) & set(list2) & set(list3)\n",
+    "print(common)  # {5\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2eec7263-b65d-469f-b903-88f1d51b0d80",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [4, 5, 6, 7, 8]\n",
+    "list3 = [5, 6, 7, 8, 9]\n",
+    "\n",
+    "common = set(list1) & set(list2) & set(list3)\n",
+    "print(common)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c94f49bf-da70-48e7-a0ea-5a4a93f87b12",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{5}\n"
+     ]
+    }
+   ],
+   "source": [
+    "list1 = [1, 2, 3, 4, 5]\n",
+    "list2 = [4, 5, 6, 7, 8]\n",
+    "list3 = [5, 6, 7, 8, 9]\n",
+    "\n",
+    "common = set(list1).intersection(list2, list3)\n",
+    "print(common)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "de21dcc1-b96a-4810-96c3-3080c6305e33",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "DICTONAIRES"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a786ae43-15bc-4dd9-b062-53fde0b8508c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "# Creating dictionary\n",
+    "data = {\n",
+    "    'X': [78, 85, 96, 80, 86],\n",
+    "    'Y': [84, 94, 89, 83, 86],\n",
+    "    'Z': [86, 97, 96, 72, 83]\n",
+    "}\n",
+    "\n",
+    "# Creating DataFrame\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Displaying DataFrame\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c4575e4a-c6a7-4c88-a4f4-fe338533d774",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "2. DataFrame with Specified Index Labels\n",
+    "Write a Pandas program to create and display a DataFrame from a specified dictionary data which has the index labels.\n",
+    "Sample  dictionary data and list labels:\n",
+    "exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a269353c-b6a7-4085-8154-330f83e42863",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "# Dictionary data\n",
+    "exam_data = {\n",
+    "    'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', \n",
+    "             'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "    'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "    'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "    'qualify': ['yes', 'no', 'yes', 'no', 'no', \n",
+    "                'yes', 'yes', 'no', 'no', 'yes']\n",
+    "}\n",
+    "\n",
+    "# Index labels\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n",
+    "\n",
+    "# Create DataFrame with specified index\n",
+    "df = pd.DataFrame(exam_data, index=labels)\n",
+    "\n",
+    "# Display DataFrame\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fa26b60c-74b8-4091-b036-1f696bf33f46",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "3.Selecting 'name' and 'score' Columns\n",
+    "Write a Pandas program to select the 'name' and 'score' columns from the following DataFrame.\n",
+    "Sample  dictionary data and list labels:\n",
+    "exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fe2b7a6a-e6f1-4070-828c-a983d15a197e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "# Dictionary data\n",
+    "exam_data = {\n",
+    "    'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', \n",
+    "             'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "    'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "    'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "    'qualify': ['yes', 'no', 'yes', 'no', 'no', \n",
+    "                'yes', 'yes', 'no', 'no', 'yes']\n",
+    "}\n",
+    "\n",
+    "# Index labels\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n",
+    "\n",
+    "# Create DataFrame\n",
+    "df = pd.DataFrame(exam_data, index=labels)\n",
+    "\n",
+    "# Select 'name' and 'score' columns\n",
+    "selected_columns = df[['name', 'score']]\n",
+    "\n",
+    "# Display result\n",
+    "print(selected_columns)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f63217fd-c7a1-410b-91cd-6dfcb6e5d6ec",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Selecting Specific Columns and Rows\n",
+    "Write a Pandas program to select the specified columns and rows from a given data frame.\n",
+    "Sample  dictionary data and list labels:\n",
+    "Select 'name' and 'score' columns in rows 1, 3, 5, 6 from the following data frame.\n",
+    "exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "21ddaa90-55bf-44dd-b289-4d423dda7d97",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "# Dictionary data\n",
+    "exam_data = {\n",
+    "    'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', \n",
+    "             'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+    "    'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+    "    'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+    "    'qualify': ['yes', 'no', 'yes', 'no', 'no', \n",
+    "                'yes', 'yes', 'no', 'no', 'yes']\n",
+    "}\n",
+    "\n",
+    "# Index labels\n",
+    "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n",
+    "\n",
+    "# Create DataFrame\n",
+    "df = pd.DataFrame(exam_data, index=labels)\n",
+    "\n",
+    "# Select rows 1, 3, 5, 6 and columns 'name' and 'score'\n",
+    "result = df.iloc[[1, 3, 5, 6]][['name', 'score']]\n",
+    "\n",
+    "# Display result\n",
+    "print(result)\n",
+    "result2 = df[\n",
+    "    (df['Product'].isin(['A', 'B'])) &\n",
+    "    (df['Quantity'].between(10, 20))\n",
+    "]\n",
+    "\n",
+    "print(result2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "242d16f1-5362-48f4-a7e1-ae0c8de4dd1a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.linear_model import LinearRegression, Ridge, Lasso\n",
+    "from sklearn.metrics import r2_score, mean_squared_error\n",
+    "\n",
+    "df = pd.read_csv(\"C:\\\\Users\\\\LENOVO\\\\Downloads\\\\Life Expectancy Data.csv\")\n",
+    "print(df.head())\n",
+    "print(df.info())\n",
+    "\n",
+    "df.columns = df.columns.str.strip()\n",
+    "\n",
+    "print(df.isnull().sum())\n",
+    "\n",
+    "df.fillna(df.mean(numeric_only=True), inplace=True)\n",
+    "\n",
+    "df = df.drop(\"Country\", axis=1)\n",
+    "df = pd.get_dummies(df, columns=[\"Status\"], drop_first=True)\n",
+    "\n",
+    "X = df.drop(\"Life expectancy\", axis=1)\n",
+    "y = df[\"Life expectancy\"]\n",
+    "\n",
+    "X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=42)\n",
+    "\n",
+    "from sklearn.preprocessing import StandardScaler\n",
+    "\n",
+    "scaler = StandardScaler()\n",
+    "\n",
+    "X_train = scaler.fit_transform(X_train)\n",
+    "X_test = scaler.transform(X_test)\n",
+    "\n",
+    "lr = LinearRegression()\n",
+    "lr.fit(X_train, y_train)\n",
+    "\n",
+    "lr_pred = lr.predict(X_test)\n",
+    "\n",
+    "print(\"Linear Regression R2:\", r2_score(y_test, lr_pred))\n",
+    "\n",
+    "ridge = Ridge(alpha=1.0)\n",
+    "ridge.fit(X_train, y_train)\n",
+    "\n",
+    "ridge_pred = ridge.predict(X_test)\n",
+    "\n",
+    "print(\"Ridge R2:\", r2_score(y_test, ridge_pred))\n",
+    "\n",
+    "lasso = Lasso(alpha=0.1, max_iter=10000)\n",
+    "lasso.fit(X_train, y_train)\n",
+    "\n",
+    "lasso_pred = lasso.predict(X_test)\n",
+    "\n",
+    "print(\"Lasso R2:\", r2_score(y_test, lasso_pred))\n",
+    "print(\"Linear Regression R2:\", r2_score(y_test, lr_pred))\n",
+    "print(\"Ridge Regression R2:\", r2_score(y_test, ridge_pred))\n",
+    "print(\"Lasso Regression R2:\", r2_score(y_test, lasso_pred))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "d7b46c87-e78e-49a3-9b8c-f5d20f5ccde3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: pandas in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (2.3.3)\n",
+      "Requirement already satisfied: openpyxl in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (3.1.5)\n",
+      "Requirement already satisfied: numpy>=1.26.0 in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from pandas) (2.3.5)\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from pandas) (2.9.0.post0)\n",
+      "Requirement already satisfied: pytz>=2020.1 in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from pandas) (2025.2)\n",
+      "Requirement already satisfied: tzdata>=2022.7 in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from pandas) (2025.2)\n",
+      "Requirement already satisfied: et-xmlfile in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from openpyxl) (2.0.0)\n",
+      "Requirement already satisfied: six>=1.5 in c:\\users\\ajayg\\anaconda3\\lib\\site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install pandas openpyxl\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "4406db82-8cbc-44c4-984b-14e7fb0d3897",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#import pandas as pd\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "be768b43-2f3d-4908-b692-47ebd023e8fa",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "a883c9e7-67eb-4d18-8f44-9838a99716e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       Country  Year      Status  Life expectancy   Adult Mortality  \\\n",
+      "0  Afghanistan  2015  Developing              65.0            263.0   \n",
+      "1  Afghanistan  2014  Developing              59.9            271.0   \n",
+      "2  Afghanistan  2013  Developing              59.9            268.0   \n",
+      "3  Afghanistan  2012  Developing              59.5            272.0   \n",
+      "4  Afghanistan  2011  Developing              59.2            275.0   \n",
+      "\n",
+      "   infant deaths  Alcohol  percentage expenditure  Hepatitis B  Measles   ...  \\\n",
+      "0             62     0.01               71.279624         65.0      1154  ...   \n",
+      "1             64     0.01               73.523582         62.0       492  ...   \n",
+      "2             66     0.01               73.219243         64.0       430  ...   \n",
+      "3             69     0.01               78.184215         67.0      2787  ...   \n",
+      "4             71     0.01                7.097109         68.0      3013  ...   \n",
+      "\n",
+      "   Polio  Total expenditure  Diphtheria    HIV/AIDS         GDP  Population  \\\n",
+      "0    6.0               8.16         65.0        0.1  584.259210  33736494.0   \n",
+      "1   58.0               8.18         62.0        0.1  612.696514    327582.0   \n",
+      "2   62.0               8.13         64.0        0.1  631.744976  31731688.0   \n",
+      "3   67.0               8.52         67.0        0.1  669.959000   3696958.0   \n",
+      "4   68.0               7.87         68.0        0.1   63.537231   2978599.0   \n",
+      "\n",
+      "    thinness  1-19 years   thinness 5-9 years  \\\n",
+      "0                   17.2                 17.3   \n",
+      "1                   17.5                 17.5   \n",
+      "2                   17.7                 17.7   \n",
+      "3                   17.9                 18.0   \n",
+      "4                   18.2                 18.2   \n",
+      "\n",
+      "   Income composition of resources  Schooling  \n",
+      "0                            0.479       10.1  \n",
+      "1                            0.476       10.0  \n",
+      "2                            0.470        9.9  \n",
+      "3                            0.463        9.8  \n",
+      "4                            0.454        9.5  \n",
+      "\n",
+      "[5 rows x 22 columns]\n",
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "RangeIndex: 2938 entries, 0 to 2937\n",
+      "Data columns (total 22 columns):\n",
+      " #   Column                           Non-Null Count  Dtype  \n",
+      "---  ------                           --------------  -----  \n",
+      " 0   Country                          2938 non-null   object \n",
+      " 1   Year                             2938 non-null   int64  \n",
+      " 2   Status                           2938 non-null   object \n",
+      " 3   Life expectancy                  2928 non-null   float64\n",
+      " 4   Adult Mortality                  2928 non-null   float64\n",
+      " 5   infant deaths                    2938 non-null   int64  \n",
+      " 6   Alcohol                          2744 non-null   float64\n",
+      " 7   percentage expenditure           2938 non-null   float64\n",
+      " 8   Hepatitis B                      2385 non-null   float64\n",
+      " 9   Measles                          2938 non-null   int64  \n",
+      " 10   BMI                             2904 non-null   float64\n",
+      " 11  under-five deaths                2938 non-null   int64  \n",
+      " 12  Polio                            2919 non-null   float64\n",
+      " 13  Total expenditure                2712 non-null   float64\n",
+      " 14  Diphtheria                       2919 non-null   float64\n",
+      " 15   HIV/AIDS                        2938 non-null   float64\n",
+      " 16  GDP                              2490 non-null   float64\n",
+      " 17  Population                       2286 non-null   float64\n",
+      " 18   thinness  1-19 years            2904 non-null   float64\n",
+      " 19   thinness 5-9 years              2904 non-null   float64\n",
+      " 20  Income composition of resources  2771 non-null   float64\n",
+      " 21  Schooling                        2775 non-null   float64\n",
+      "dtypes: float64(16), int64(4), object(2)\n",
+      "memory usage: 505.1+ KB\n",
+      "None\n",
+      "Country                              0\n",
+      "Year                                 0\n",
+      "Status                               0\n",
+      "Life expectancy                     10\n",
+      "Adult Mortality                     10\n",
+      "infant deaths                        0\n",
+      "Alcohol                            194\n",
+      "percentage expenditure               0\n",
+      "Hepatitis B                        553\n",
+      "Measles                              0\n",
+      "BMI                                 34\n",
+      "under-five deaths                    0\n",
+      "Polio                               19\n",
+      "Total expenditure                  226\n",
+      "Diphtheria                          19\n",
+      "HIV/AIDS                             0\n",
+      "GDP                                448\n",
+      "Population                         652\n",
+      "thinness  1-19 years                34\n",
+      "thinness 5-9 years                  34\n",
+      "Income composition of resources    167\n",
+      "Schooling                          163\n",
+      "dtype: int64\n",
+      "Linear Regression R2: 0.8240562394240223\n",
+      "Ridge R2: 0.8236525829337306\n",
+      "Lasso R2: 0.8112662483477272\n",
+      "Linear Regression R2: 0.8240562394240223\n",
+      "Ridge Regression R2: 0.8236525829337306\n",
+      "Lasso Regression R2: 0.8112662483477272\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.linear_model import LinearRegression, Ridge, Lasso\n",
+    "from sklearn.metrics import r2_score, mean_squared_error\n",
+    "\n",
+    "df = pd.read_csv(\"Life Expectancy Data.csv\")\n",
+    "print(df.head())\n",
+    "print(df.info())\n",
+    "\n",
+    "df.columns = df.columns.str.strip()\n",
+    "\n",
+    "print(df.isnull().sum())\n",
+    "\n",
+    "df.fillna(df.mean(numeric_only=True), inplace=True)\n",
+    "\n",
+    "df = df.drop(\"Country\", axis=1)\n",
+    "df = pd.get_dummies(df, columns=[\"Status\"], drop_first=True)\n",
+    "\n",
+    "X = df.drop(\"Life expectancy\", axis=1)\n",
+    "y = df[\"Life expectancy\"]\n",
+    "\n",
+    "X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=42)\n",
+    "\n",
+    "from sklearn.preprocessing import StandardScaler\n",
+    "\n",
+    "scaler = StandardScaler()\n",
+    "\n",
+    "X_train = scaler.fit_transform(X_train)\n",
+    "X_test = scaler.transform(X_test)\n",
+    "\n",
+    "lr = LinearRegression()\n",
+    "lr.fit(X_train, y_train)\n",
+    "\n",
+    "lr_pred = lr.predict(X_test)\n",
+    "\n",
+    "print(\"Linear Regression R2:\", r2_score(y_test, lr_pred))\n",
+    "\n",
+    "ridge = Ridge(alpha=1.0)\n",
+    "ridge.fit(X_train, y_train)\n",
+    "\n",
+    "ridge_pred = ridge.predict(X_test)\n",
+    "\n",
+    "print(\"Ridge R2:\", r2_score(y_test, ridge_pred))\n",
+    "\n",
+    "lasso = Lasso(alpha=0.1, max_iter=10000)\n",
+    "lasso.fit(X_train, y_train)\n",
+    "\n",
+    "lasso_pred = lasso.predict(X_test)\n",
+    "\n",
+    "print(\"Lasso R2:\", r2_score(y_test, lasso_pred))\n",
+    "print(\"Linear Regression R2:\", r2_score(y_test, lr_pred))\n",
+    "print(\"Ridge Regression R2:\", r2_score(y_test, ridge_pred))\n",
+    "print(\"Lasso Regression R2:\", r2_score(y_test, lasso_pred))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "89895bf8-ae82-4abe-a2b3-308a612c3dc4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mport pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "\n",
+    "df = pd.read_csv('Titanic-Dataset.csv')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "e5b68eec-efb6-4676-a61e-562a07f31881",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Life expectancy</th>\n",
+       "      <th>Adult Mortality</th>\n",
+       "      <th>infant deaths</th>\n",
+       "      <th>Alcohol</th>\n",
+       "      <th>percentage expenditure</th>\n",
+       "      <th>Hepatitis B</th>\n",
+       "      <th>Measles</th>\n",
+       "      <th>BMI</th>\n",
+       "      <th>under-five deaths</th>\n",
+       "      <th>...</th>\n",
+       "      <th>Total expenditure</th>\n",
+       "      <th>Diphtheria</th>\n",
+       "      <th>HIV/AIDS</th>\n",
+       "      <th>GDP</th>\n",
+       "      <th>Population</th>\n",
+       "      <th>thinness  1-19 years</th>\n",
+       "      <th>thinness 5-9 years</th>\n",
+       "      <th>Income composition of resources</th>\n",
+       "      <th>Schooling</th>\n",
+       "      <th>Status_Developing</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>2015</td>\n",
+       "      <td>65.0</td>\n",
+       "      <td>263.0</td>\n",
+       "      <td>62</td>\n",
+       "      <td>0.01</td>\n",
+       "      <td>71.279624</td>\n",
+       "      <td>65.0</td>\n",
+       "      <td>1154</td>\n",
+       "      <td>19.1</td>\n",
+       "      <td>83</td>\n",
+       "      <td>...</td>\n",
+       "      <td>8.16</td>\n",
+       "      <td>65.0</td>\n",
+       "      <td>0.1</td>\n",
+       "      <td>584.259210</td>\n",
+       "      <td>33736494.0</td>\n",
+       "      <td>17.2</td>\n",
+       "      <td>17.3</td>\n",
+       "      <td>0.479</td>\n",
+       "      <td>10.1</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2014</td>\n",
+       "      <td>59.9</td>\n",
+       "      <td>271.0</td>\n",
+       "      <td>64</td>\n",
+       "      <td>0.01</td>\n",
+       "      <td>73.523582</td>\n",
+       "      <td>62.0</td>\n",
+       "      <td>492</td>\n",
+       "      <td>18.6</td>\n",
+       "      <td>86</td>\n",
+       "      <td>...</td>\n",
+       "      <td>8.18</td>\n",
+       "      <td>62.0</td>\n",
+       "      <td>0.1</td>\n",
+       "      <td>612.696514</td>\n",
+       "      <td>327582.0</td>\n",
+       "      <td>17.5</td>\n",
+       "      <td>17.5</td>\n",
+       "      <td>0.476</td>\n",
+       "      <td>10.0</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2013</td>\n",
+       "      <td>59.9</td>\n",
+       "      <td>268.0</td>\n",
+       "      <td>66</td>\n",
+       "      <td>0.01</td>\n",
+       "      <td>73.219243</td>\n",
+       "      <td>64.0</td>\n",
+       "      <td>430</td>\n",
+       "      <td>18.1</td>\n",
+       "      <td>89</td>\n",
+       "      <td>...</td>\n",
+       "      <td>8.13</td>\n",
+       "      <td>64.0</td>\n",
+       "      <td>0.1</td>\n",
+       "      <td>631.744976</td>\n",
+       "      <td>31731688.0</td>\n",
+       "      <td>17.7</td>\n",
+       "      <td>17.7</td>\n",
+       "      <td>0.470</td>\n",
+       "      <td>9.9</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>2012</td>\n",
+       "      <td>59.5</td>\n",
+       "      <td>272.0</td>\n",
+       "      <td>69</td>\n",
+       "      <td>0.01</td>\n",
+       "      <td>78.184215</td>\n",
+       "      <td>67.0</td>\n",
+       "      <td>2787</td>\n",
+       "      <td>17.6</td>\n",
+       "      <td>93</td>\n",
+       "      <td>...</td>\n",
+       "      <td>8.52</td>\n",
+       "      <td>67.0</td>\n",
+       "      <td>0.1</td>\n",
+       "      <td>669.959000</td>\n",
+       "      <td>3696958.0</td>\n",
+       "      <td>17.9</td>\n",
+       "      <td>18.0</td>\n",
+       "      <td>0.463</td>\n",
+       "      <td>9.8</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>2011</td>\n",
+       "      <td>59.2</td>\n",
+       "      <td>275.0</td>\n",
+       "      <td>71</td>\n",
+       "      <td>0.01</td>\n",
+       "      <td>7.097109</td>\n",
+       "      <td>68.0</td>\n",
+       "      <td>3013</td>\n",
+       "      <td>17.2</td>\n",
+       "      <td>97</td>\n",
+       "      <td>...</td>\n",
+       "      <td>7.87</td>\n",
+       "      <td>68.0</td>\n",
+       "      <td>0.1</td>\n",
+       "      <td>63.537231</td>\n",
+       "      <td>2978599.0</td>\n",
+       "      <td>18.2</td>\n",
+       "      <td>18.2</td>\n",
+       "      <td>0.454</td>\n",
+       "      <td>9.5</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2933</th>\n",
+       "      <td>2004</td>\n",
+       "      <td>44.3</td>\n",
+       "      <td>723.0</td>\n",
+       "      <td>27</td>\n",
+       "      <td>4.36</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>68.0</td>\n",
+       "      <td>31</td>\n",
+       "      <td>27.1</td>\n",
+       "      <td>42</td>\n",
+       "      <td>...</td>\n",
+       "      <td>7.13</td>\n",
+       "      <td>65.0</td>\n",
+       "      <td>33.6</td>\n",
+       "      <td>454.366654</td>\n",
+       "      <td>12777511.0</td>\n",
+       "      <td>9.4</td>\n",
+       "      <td>9.4</td>\n",
+       "      <td>0.407</td>\n",
+       "      <td>9.2</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2934</th>\n",
+       "      <td>2003</td>\n",
+       "      <td>44.5</td>\n",
+       "      <td>715.0</td>\n",
+       "      <td>26</td>\n",
+       "      <td>4.06</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>7.0</td>\n",
+       "      <td>998</td>\n",
+       "      <td>26.7</td>\n",
+       "      <td>41</td>\n",
+       "      <td>...</td>\n",
+       "      <td>6.52</td>\n",
+       "      <td>68.0</td>\n",
+       "      <td>36.7</td>\n",
+       "      <td>453.351155</td>\n",
+       "      <td>12633897.0</td>\n",
+       "      <td>9.8</td>\n",
+       "      <td>9.9</td>\n",
+       "      <td>0.418</td>\n",
+       "      <td>9.5</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2935</th>\n",
+       "      <td>2002</td>\n",
+       "      <td>44.8</td>\n",
+       "      <td>73.0</td>\n",
+       "      <td>25</td>\n",
+       "      <td>4.43</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>73.0</td>\n",
+       "      <td>304</td>\n",
+       "      <td>26.3</td>\n",
+       "      <td>40</td>\n",
+       "      <td>...</td>\n",
+       "      <td>6.53</td>\n",
+       "      <td>71.0</td>\n",
+       "      <td>39.8</td>\n",
+       "      <td>57.348340</td>\n",
+       "      <td>125525.0</td>\n",
+       "      <td>1.2</td>\n",
+       "      <td>1.3</td>\n",
+       "      <td>0.427</td>\n",
+       "      <td>10.0</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2936</th>\n",
+       "      <td>2001</td>\n",
+       "      <td>45.3</td>\n",
+       "      <td>686.0</td>\n",
+       "      <td>25</td>\n",
+       "      <td>1.72</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>76.0</td>\n",
+       "      <td>529</td>\n",
+       "      <td>25.9</td>\n",
+       "      <td>39</td>\n",
+       "      <td>...</td>\n",
+       "      <td>6.16</td>\n",
+       "      <td>75.0</td>\n",
+       "      <td>42.1</td>\n",
+       "      <td>548.587312</td>\n",
+       "      <td>12366165.0</td>\n",
+       "      <td>1.6</td>\n",
+       "      <td>1.7</td>\n",
+       "      <td>0.427</td>\n",
+       "      <td>9.8</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2937</th>\n",
+       "      <td>2000</td>\n",
+       "      <td>46.0</td>\n",
+       "      <td>665.0</td>\n",
+       "      <td>24</td>\n",
+       "      <td>1.68</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>79.0</td>\n",
+       "      <td>1483</td>\n",
+       "      <td>25.5</td>\n",
+       "      <td>39</td>\n",
+       "      <td>...</td>\n",
+       "      <td>7.10</td>\n",
+       "      <td>78.0</td>\n",
+       "      <td>43.5</td>\n",
+       "      <td>547.358878</td>\n",
+       "      <td>12222251.0</td>\n",
+       "      <td>11.0</td>\n",
+       "      <td>11.2</td>\n",
+       "      <td>0.434</td>\n",
+       "      <td>9.8</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>2938 rows × 21 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "      Year  Life expectancy  Adult Mortality  infant deaths  Alcohol  \\\n",
+       "0     2015             65.0            263.0             62     0.01   \n",
+       "1     2014             59.9            271.0             64     0.01   \n",
+       "2     2013             59.9            268.0             66     0.01   \n",
+       "3     2012             59.5            272.0             69     0.01   \n",
+       "4     2011             59.2            275.0             71     0.01   \n",
+       "...    ...              ...              ...            ...      ...   \n",
+       "2933  2004             44.3            723.0             27     4.36   \n",
+       "2934  2003             44.5            715.0             26     4.06   \n",
+       "2935  2002             44.8             73.0             25     4.43   \n",
+       "2936  2001             45.3            686.0             25     1.72   \n",
+       "2937  2000             46.0            665.0             24     1.68   \n",
+       "\n",
+       "      percentage expenditure  Hepatitis B  Measles   BMI  under-five deaths  \\\n",
+       "0                  71.279624         65.0     1154  19.1                 83   \n",
+       "1                  73.523582         62.0      492  18.6                 86   \n",
+       "2                  73.219243         64.0      430  18.1                 89   \n",
+       "3                  78.184215         67.0     2787  17.6                 93   \n",
+       "4                   7.097109         68.0     3013  17.2                 97   \n",
+       "...                      ...          ...      ...   ...                ...   \n",
+       "2933                0.000000         68.0       31  27.1                 42   \n",
+       "2934                0.000000          7.0      998  26.7                 41   \n",
+       "2935                0.000000         73.0      304  26.3                 40   \n",
+       "2936                0.000000         76.0      529  25.9                 39   \n",
+       "2937                0.000000         79.0     1483  25.5                 39   \n",
+       "\n",
+       "      ...  Total expenditure  Diphtheria  HIV/AIDS         GDP  Population  \\\n",
+       "0     ...               8.16        65.0       0.1  584.259210  33736494.0   \n",
+       "1     ...               8.18        62.0       0.1  612.696514    327582.0   \n",
+       "2     ...               8.13        64.0       0.1  631.744976  31731688.0   \n",
+       "3     ...               8.52        67.0       0.1  669.959000   3696958.0   \n",
+       "4     ...               7.87        68.0       0.1   63.537231   2978599.0   \n",
+       "...   ...                ...         ...       ...         ...         ...   \n",
+       "2933  ...               7.13        65.0      33.6  454.366654  12777511.0   \n",
+       "2934  ...               6.52        68.0      36.7  453.351155  12633897.0   \n",
+       "2935  ...               6.53        71.0      39.8   57.348340    125525.0   \n",
+       "2936  ...               6.16        75.0      42.1  548.587312  12366165.0   \n",
+       "2937  ...               7.10        78.0      43.5  547.358878  12222251.0   \n",
+       "\n",
+       "      thinness  1-19 years  thinness 5-9 years  \\\n",
+       "0                     17.2                17.3   \n",
+       "1                     17.5                17.5   \n",
+       "2                     17.7                17.7   \n",
+       "3                     17.9                18.0   \n",
+       "4                     18.2                18.2   \n",
+       "...                    ...                 ...   \n",
+       "2933                   9.4                 9.4   \n",
+       "2934                   9.8                 9.9   \n",
+       "2935                   1.2                 1.3   \n",
+       "2936                   1.6                 1.7   \n",
+       "2937                  11.0                11.2   \n",
+       "\n",
+       "      Income composition of resources  Schooling  Status_Developing  \n",
+       "0                               0.479       10.1               True  \n",
+       "1                               0.476       10.0               True  \n",
+       "2                               0.470        9.9               True  \n",
+       "3                               0.463        9.8               True  \n",
+       "4                               0.454        9.5               True  \n",
+       "...                               ...        ...                ...  \n",
+       "2933                            0.407        9.2               True  \n",
+       "2934                            0.418        9.5               True  \n",
+       "2935                            0.427       10.0               True  \n",
+       "2936                            0.427        9.8               True  \n",
+       "2937                            0.434        9.8               True  \n",
+       "\n",
+       "[2938 rows x 21 columns]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "74082441-efac-448e-90f9-49b98bb008b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "'Age'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mKeyError\u001b[39m                                  Traceback (most recent call last)",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3812\u001b[39m, in \u001b[36mIndex.get_loc\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   3811\u001b[39m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[32m-> \u001b[39m\u001b[32m3812\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43m_engine\u001b[49m\u001b[43m.\u001b[49m\u001b[43mget_loc\u001b[49m\u001b[43m(\u001b[49m\u001b[43mcasted_key\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   3813\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m err:\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/index.pyx:167\u001b[39m, in \u001b[36mpandas._libs.index.IndexEngine.get_loc\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/index.pyx:196\u001b[39m, in \u001b[36mpandas._libs.index.IndexEngine.get_loc\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/hashtable_class_helper.pxi:7088\u001b[39m, in \u001b[36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/hashtable_class_helper.pxi:7096\u001b[39m, in \u001b[36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[31mKeyError\u001b[39m: 'Age'",
+      "\nThe above exception was the direct cause of the following exception:\n",
+      "\u001b[31mKeyError\u001b[39m                                  Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[7]\u001b[39m\u001b[32m, line 8\u001b[39m\n\u001b[32m      5\u001b[39m plt.figure(figsize=(\u001b[32m12\u001b[39m, \u001b[32m5\u001b[39m))\n\u001b[32m      7\u001b[39m plt.subplot(\u001b[32m1\u001b[39m, \u001b[32m2\u001b[39m, \u001b[32m1\u001b[39m)\n\u001b[32m----> \u001b[39m\u001b[32m8\u001b[39m sns.histplot(\u001b[43mdf\u001b[49m\u001b[43m[\u001b[49m\u001b[33;43m'\u001b[39;49m\u001b[33;43mAge\u001b[39;49m\u001b[33;43m'\u001b[39;49m\u001b[43m]\u001b[49m, kde=\u001b[38;5;28;01mTrue\u001b[39;00m)\n\u001b[32m      9\u001b[39m plt.title(\u001b[33m'\u001b[39m\u001b[33mDistribution of Age\u001b[39m\u001b[33m'\u001b[39m)\n\u001b[32m     10\u001b[39m plt.xlabel(\u001b[33m'\u001b[39m\u001b[33mAge\u001b[39m\u001b[33m'\u001b[39m)\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\frame.py:4113\u001b[39m, in \u001b[36mDataFrame.__getitem__\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   4111\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m.columns.nlevels > \u001b[32m1\u001b[39m:\n\u001b[32m   4112\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m._getitem_multilevel(key)\n\u001b[32m-> \u001b[39m\u001b[32m4113\u001b[39m indexer = \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43mcolumns\u001b[49m\u001b[43m.\u001b[49m\u001b[43mget_loc\u001b[49m\u001b[43m(\u001b[49m\u001b[43mkey\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   4114\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m is_integer(indexer):\n\u001b[32m   4115\u001b[39m     indexer = [indexer]\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3819\u001b[39m, in \u001b[36mIndex.get_loc\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   3814\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(casted_key, \u001b[38;5;28mslice\u001b[39m) \u001b[38;5;129;01mor\u001b[39;00m (\n\u001b[32m   3815\u001b[39m         \u001b[38;5;28misinstance\u001b[39m(casted_key, abc.Iterable)\n\u001b[32m   3816\u001b[39m         \u001b[38;5;129;01mand\u001b[39;00m \u001b[38;5;28many\u001b[39m(\u001b[38;5;28misinstance\u001b[39m(x, \u001b[38;5;28mslice\u001b[39m) \u001b[38;5;28;01mfor\u001b[39;00m x \u001b[38;5;129;01min\u001b[39;00m casted_key)\n\u001b[32m   3817\u001b[39m     ):\n\u001b[32m   3818\u001b[39m         \u001b[38;5;28;01mraise\u001b[39;00m InvalidIndexError(key)\n\u001b[32m-> \u001b[39m\u001b[32m3819\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m(key) \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01merr\u001b[39;00m\n\u001b[32m   3820\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mTypeError\u001b[39;00m:\n\u001b[32m   3821\u001b[39m     \u001b[38;5;66;03m# If we have a listlike key, _check_indexing_error will raise\u001b[39;00m\n\u001b[32m   3822\u001b[39m     \u001b[38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise\u001b[39;00m\n\u001b[32m   3823\u001b[39m     \u001b[38;5;66;03m#  the TypeError.\u001b[39;00m\n\u001b[32m   3824\u001b[39m     \u001b[38;5;28mself\u001b[39m._check_indexing_error(key)\n",
+      "\u001b[31mKeyError\u001b[39m: 'Age'"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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spUAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAEhEGgCQiDABJRBgAkogwACQRYQBIIsIAkESEASCJCANAktIR3r9/f3R1dUV7e3t0dHTEqlWror+//4RnH3300Vi4cGHMnj07Lr/88vjxj398ygMDwGhROsLLli2Lpqam2LRpU2zYsCE2b94c69atO+7crl27YunSpXHNNdfE448/HkuXLo1ly5bF888/X8XcADDilYrw7t27o6enJ5YvXx6NjY0xZcqU6OrqivXr1x939u6774729va45JJLor6+PhYsWBBz586N733ve5UNDwAjWX2Zw9u3b4+JEyfGpEmTjl1raWmJvXv3xsGDB2PChAnHru/YsSOmT58+5P5ve9vb4he/+MWwHqsoioiIOHr0aJkReQ21Wi0ifrfTurq65GlGPvusnp1Wyz6rN9ikwUadqlIRPnToUDQ2Ng65Nni7r69vSIRPdPZNb3pT9PX1DeuxBgYGIiLimWeeKTMiw7Bt27bsEUYV+6yenVbLPqs32KhTVSrCTU1Ncfjw4SHXBm+PGzduyPXGxsY4cuTIkGtHjhw57tyrDlZfH62trTF27NgYM2ZMmTEB4HVRFEUMDAxEfX2pfL6qUr/LtGnT4sCBA7Fv375obm6OiIidO3fG5MmTY/z48UPOTp8+PZ5++ukh13bs2BGzZs0a1mONHTs2GhoayowHACNKqSdmTZ06NebMmROrV6+Ol156Kfbs2RNr1qyJJUuWHHd20aJF0dPTEw888ED09/fHAw88ED09PbF48eLKhgeAkWxMUfJfl/ft2xcrV66MLVu2xNixY+O9731vfOYzn4m6urpoa2uLG2+8MRYtWhQREZs2bYqvfOUr8dxzz8Uf//Efx/Lly2P+/PmvywcCACNN6QgDANXwspUAkESEASCJCANAEhEGgCSpEfaOTNUrs9M777wzLrvssmhra4vLLrvshK8B/kZXZp+DfvnLX8b5558fW7ZsOU1TjixldtrT0xMf+MAHoq2tLebPnx9r1649zdOe+crs8zvf+U5cfPHFccEFF8TChQvjoYceOs3Tjiy/+c1v4tJLL33Nr+VTblOR6CMf+Uhx/fXXF319fcVzzz1XXHHFFcU///M/H3fuV7/6VdHa2lo8/PDDxSuvvFLcf//9xXnnnVf893//d8LUZ7bh7vThhx8u2tvbi61btxYDAwPFE088UbS3txcbN25MmPrMNdx9Durr6yuuvPLKYvr06cW///u/n8ZJR47h7nTHjh3F+eefX9x1113FwMBA8fOf/7x45zvfWTz44IMJU5+5hrvPRx55pLjwwguLnTt3FkVRFBs3bixmzJhR7Nmz53SPPCI8/vjjxSWXXPKaX8tVtCktwrt27SqmT58+ZNj777+/uOiii447+7Wvfa3467/+6yHX/uZv/qb4x3/8x9d9zpGkzE6/+93vFmvXrh1y7W//9m+Lm2666XWfc6Qos89Bn/3sZ4uvf/3rIvwqyux05cqVxXXXXTfk2rPPPlv8z//8z+s+50hRZp/f/va3i3e9613Fjh07ioGBgeLhhx8uWltbi//6r/86nSOPCHfddVdx0UUXFffff/9rfi1X0aa0v47+Q+/I9PtO9R2Z3ijK7PTDH/5wfOITnzh2e//+/fHYY48N+2VF3wjK7DMi4p577ondu3fH1VdffTrHHFHK7PSpp56Kt771rXHddddFR0dHXH755dHT0xNnn3326R77jFVmn1dccUU0NzfHggUL4h3veEdcc801cfPNN8fkyZNP99hnvHe/+93x8MMPx4IFC17zXBVtSovwH3pHpj90tsw7Mr1RlNnp73vhhRfi4x//eMyaNSuuvPLK13XGkaTMPnfu3Bm33nprfPWrX/WWca+hzE5ffPHFuOOOO2LRokXx05/+NFauXBm33HJLbNy48bTNe6Yrs89XXnklZsyYEf/2b/8WTz75ZKxcuTJWrFjhnepO4Oyzzx7WGzRU0aa0CJ/Od2R6oyiz00FPPvlkLFmyJM4555z4xje+Udk7g4wGw93nyy+/HNdee2184QtfiLe85S2ndcaRpsznaENDQ3R2dsZFF10U9fX1MXfu3Fi8eHE8+OCDp23eM12Zfd50000xbdq0OO+886KhoSHe//73x+zZs+Puu+8+bfOONlW0KS3Cv/+OTINe6x2Ztm/fPuTajh07Ytq0aadl1pGizE4jIjZs2BAf/ehH46/+6q/iq1/9qnet+j+Gu8/e3t7YtWtXrFixItrb26O9vT0iIj71qU/FDTfccLrHPqOV+RxtaWk59gbqg2q1WmVvpj4alNnn3r17j9tnfX19nHXWWadl1tGokjadyj9en6q/+Iu/KK699trit7/97bFn9XV3dx93bseOHUVra2tx//33H3sGWmtra/Hss88mTH1mG+5ON27cWLzjHe8ofvKTnyRMOXIMd5//lydmvbrh7vRnP/tZMXPmzOKee+4pBgYGip6enmL27NnFD3/4w4Spz1zD3eett95adHR0FP/5n/9Z1Gq14sEHHyxaW1uLbdu2JUw9crzW13IVbUqN8AsvvFAsXbq0eOc731m8613vKm6++eaiv7+/KIqimD17dvH973//2Nmf/OQnxaJFi4rZs2cXV1xxRfHII49kjX1GG+5Or7zyymLGjBnF7Nmzh/z4u7/7u8zxzzhlPkd/nwi/ujI7feSRR4o///M/L9ra2orOzs7izjvvzBr7jDXcfb7yyitFd3d38Z73vKe44IILive9733+ED4M//drueo2eRclAEjiZSsBIIkIA0ASEQaAJCIMAElEGACSiDAAJBFhAEgiwgCQRIQBIIkIA0ASEQaAJCIMAEn+H1CJbw7P1fFdAAAAAElFTkSuQmCC",
+      "text/plain": [
+       "<Figure size 1200x500 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Set style for plots\n",
+    "sns.set_style('whitegrid')\n",
+    "\n",
+    "# 2. Histograms for numerical features\n",
+    "plt.figure(figsize=(12, 5))\n",
+    "\n",
+    "plt.subplot(1, 2, 1)\n",
+    "sns.histplot(df['Age'], kde=True)\n",
+    "plt.title('Distribution of Age')\n",
+    "plt.xlabel('Age')\n",
+    "plt.ylabel('Count')\n",
+    "\n",
+    "plt.subplot(1, 2, 2)\n",
+    "sns.histplot(df['Fare'], kde=True)\n",
+    "plt.title('Distribution of Fare')\n",
+    "plt.xlabel('Fare')\n",
+    "plt.ylabel('Count')\n",
+    "\n",
+    "plt.tight_layout()\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d0f860e3-25ce-4943-9360-6c03ef7e820d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
